@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Beginning of Potential</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #0a0a0c;
+        color: #f2f2f2;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Scroll-like-paper effect */
+    .page {
+        width: 100%;
+        min-height: 200vh;
+        background: linear-gradient(to bottom, #0a0a0c 0%, #111118 100%);
+        padding: 0;
+        position: relative;
+    }
+
+    /* Hero image */
+    .hero {
+        width: 100%;
+        height: 100vh;
+        background-image: url('image/motorcycle.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0.85);
+        position: relative;
+    }
+
+    /* Text container */
+    .text-block {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 1.2s ease;
+    }
+
+    /* Reveal when scrolled into view */
+    .text-block.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Individual lines */
+    .line {
+        margin: 2.5rem 0;
+        opacity: 0.7;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+    }
+
+    /* Slight glow for atmosphere */
+    .line:hover {
+        opacity: 1;
+        text-shadow: 0 0 12px rgba(255,255,255,0.15);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="hero"></div>
+
+    <div class="text-block" id="block1">
+        <div class="line">The beginning of potential.</div>
+        <div class="line">Where motion becomes possibility.</div>
+        <div class="line">A place to create beauty, shape art, or build a dream.</div>
+        <div class="line">Your world, draped in style, expressed in the language of color and design.</div>
+    </div>
+
+    <div class="text-block" id="block2">
+        <div class="line">Here, the process begins.</div>
+        <div class="line">Energy gathered, focused, resilient.</div>
+        <div class="line">Emerging like a chrysalis opening — shifting, forming, becoming.</div>
+        <div class="line">Change shaped by intention.</div>
+        <div class="line">Change shaped by use.</div>
+        <div class="line">Change shaped by you.</div>
+    </div>
+
+</div>
+
+<script>
+    // Reveal text blocks on scroll
+    const blocks = document.querySelectorAll('.text-block');
+
+    const revealOnScroll = () => {
+        const trigger = window.innerHeight * 0.85;
+
+        blocks.forEach(block => {
+            const top = block.getBoundingClientRect().top;
+            if (top < trigger) {
+                block.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+</script>
+
+</body>
+</html>
